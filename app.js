@@ -1,7 +1,9 @@
 const form = document.querySelector('#form');
+const images = document.querySelector('#images');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    images.innerHTML = '';
     const searchTerm = form.elements.search.value;
     const params = { q: searchTerm };
     try {
@@ -23,7 +25,7 @@ const displayPics = (shows) => {
     for (let show of shows) {
         const img = document.createElement('IMG');
         img.src = show.show.image.medium;
-        document.body.append(img);
+        images.append(img);
     }
 
 
